@@ -52,7 +52,7 @@ class Institutionstaffs::RegistrationsController < Devise::RegistrationsControll
 
   def after_sign_up_path_for(resource)
   if resource.is_a?(Institutionstaff)
-    new_institutionstaff_session_path
+    new_overtstaff_session_path
   else
     super
   end

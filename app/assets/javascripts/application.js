@@ -17,3 +17,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+$('a[data-popup]').on('click', function(e) { window.open($(this).attr('href')); e.preventDefault(); });
