@@ -51,9 +51,9 @@ class Overtstaffs::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
+ def after_sign_up_path_for(resource)
   if resource.is_a?(Overtstaff)
-    new_institutionstaff_session_path
+    overtstaff_dashboard_path(resource)
   else
     super
   end
