@@ -1,3 +1,5 @@
+<div class="banner">
+ <div class="contain">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -23,4 +25,12 @@
   </div>
 <% end %>
 
-<%= render "institutionstaffs/shared/links" %>
+ <%= render "institutionstaffs/shared/links" %>
+ </div>
+</div>
+<style>
+  .contain{margin-right:1275px;
+    margin-top:50px;}
+    a {margin-top:5px;color:white;}
+    .actions{margin-top:10px;}
+</style>
