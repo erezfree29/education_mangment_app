@@ -49,12 +49,12 @@ class Institutionstaffs::RegistrationsController < Devise::RegistrationsControll
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-
+  include Accessible
   def after_sign_up_path_for(resource)
   if resource.is_a?(Institutionstaff)
     institutionstaff_dashboard_path(resource)
   else
-    overtstaff_dashboard_path(resource)
+    super
   end
 end
   # The path used after sign up for inactive accounts.
