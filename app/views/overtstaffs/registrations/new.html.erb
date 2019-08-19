@@ -1,48 +1,60 @@
 <div class="banner">
 
-<div class="contain">
-  <h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+ <div class="contain">
+  
+<h2>Overt staff</h2>
+<h2>Sign up</h2>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+<div class="sign_up">
+  <div class="form-inputs">
 
-  <div class="field">
-    <%= f.label :last_name%><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
+    <div>*First name</div>
+     <%= f.input :first_name,required: true,autofocus: true, autocomplete: "first_name",placeholder: "Enter your first name",label:false%><br>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+     <div>*Last name</div>
+     <%= f.input :last_name,required: true,autofocus: true, autocomplete: "first_name",placeholder: "Enter your first name",label:false%><br>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+     <div>*Email</div>
+     <%= f.email_field :email,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "email" },label:false%>
+    <div id="pass">
+     <div>*Password</div>
+     <%= f.input :password,
+                required: true,
+                hint: ("password must contain 8 or more characters and have both lower case and a upper case letter and a symbol"),
+                input_html: { autocomplete: "new-password" },label:false%></div>
+    <div>*Password_confirmation</div>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" },label:false%>
   </div>
+</div>
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+ <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+ <%= render "overtstaffs/shared/links" %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-    <% end %>
-    <div class="links"><%= render "overtstaffs/shared/links"%></div>
-  </div>
+
+
+ </div>
+  
+  
 
 </div>
 <style>
   .contain{margin-right:1275px;
-    margin-top:50px;}
+    margin-top:50px;margin-left:10px;}
     a {margin-top:5px;color:white;}
     .actions{margin-top:10px;}
+  .hint
+  {    position: absolute;
+    width: 400px;left:482px;top:435px;color:yellow;}
+  #pass{margin-top:17px;}
+
 </style>
