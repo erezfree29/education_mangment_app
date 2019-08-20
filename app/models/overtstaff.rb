@@ -1,14 +1,19 @@
 class Overtstaff < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  validate :verify_overt_software_email_address
-  validates :email, uniqueness: true
-  validates :first_name,:last_name,:email,:password,presence:true,:allow_nil => false
+  validate :verify_overt_software_email_address 
 
+     validates :email,
+          :presence => {:message => "Email can't be blank." },
+          :uniqueness => {:message => "Email already exists."}
+          
+
+
+
+  validates :first_name,:last_name,:email,:password,presence:true,:allow_nil => false
   before_create :confirmation_token_verify
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
      private
       def confirmation_token_verify
     if self.confirmation_token.blank?
@@ -16,7 +21,7 @@ class Overtstaff < ApplicationRecord
     end
   end
      #check if email account belongs to overt software
-    def verify_overt_software_email_address
+    def  verify_overt_software_email_address
       if self.email.length > 18
     	email_account = self.email[-17..-1]
       else
@@ -25,9 +30,11 @@ class Overtstaff < ApplicationRecord
     	if 
     		email_account != "overtsoftware.com"
         ##will cause the next validation to fail and record will not be created
+
          self.first_name = nil
       end
     end
+
 
    # password section
    PASSWORD_FORMAT = /\A

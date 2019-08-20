@@ -51,6 +51,8 @@ class Overtstaffs::RegistrationsController < Devise::RegistrationsController
   # end
   include Accessible
   skip_before_action :check_institutionstaff, only: :destroy
+  
+
 
 
   # The path used after sign up.

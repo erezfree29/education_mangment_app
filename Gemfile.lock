@@ -81,6 +81,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    custom_error_message (1.1.1)
     devise (4.6.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -233,6 +234,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  custom_error_message (~> 1.1, >= 1.1)
   devise
   jbuilder (~> 2.5)
   jquery-rails
